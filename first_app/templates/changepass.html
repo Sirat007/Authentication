@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %} {% load crispy_forms_tags %}
+
+<h1 class="text-center">Password Change Page</h1>
+
+{% if messages %} {% for m in messages %}
+<h1 {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</h1>
+{% endfor %} {% endif %}
+
+<form method="post" style="width: 50%; margin: auto" class="d-flex flex-column"  novalidate>
+  {% csrf_token %} {% for fm in form %} {{fm.label_tag}} {{fm}}
+  {{fm.errors|striptags}} {% endfor %}
+  <div>
+    <button class="btn btn-primary m-2" type="Submit">Submit</button>
+  </div>
+</form>
+
+{% endblock  %}

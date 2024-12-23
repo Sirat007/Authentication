@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% block content %}
+<h1 class="text-center">Profile Page</h1>
+
+
+{% if messages %} {% for m in messages %}
+<h1 {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</h1>
+{% endfor %}
+ {% endif %}
+
+<div class="d-flex flex-wrap flex-column align-items-center m-5 justify-content-around">
+  <div><a class="btn btn-primary m-3 p-2" href="{% url 'edit' %}">Edit Page</a></div>
+  <div>
+    <a class="btn btn-primary m-3 p-2" href="{% url 'change_pass' %}">Change your password</a>
+  </div>
+  <div>
+    <a class="btn btn-primary m-3 p-2" href="{% url 'change_pass_2' %}"
+      >Change your password without old password</a
+    >
+  </div>
+</div>
+{% endblock  %}
